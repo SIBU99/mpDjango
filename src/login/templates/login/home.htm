@@ -1,0 +1,43 @@
+{% extends 'base.htm' %}
+{% load staticfiles %}
+    {% block title %}E-DSW | Home{% endblock title %}
+  {% block body-main %}
+
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div class="container-fluid" id="test1">
+      {% for _ in range %}
+        <br>
+      {% endfor %}
+      <h1 class="text-center">E-DSW</h1>
+    </div>
+
+    {% include 'login/navbar.htm' %}
+    <br>
+    <br>
+    <div class="container-fluid">
+        {% include 'homepage/slider.htm' %}
+    </div>
+
+    <div id="section1" class="container-fluid">
+        <h1>LOG IN</h1>
+        {% include 'login/login2.htm' %}
+    </div>
+    <div id="section2" class="container-fluid">
+        {% include 'homepage/infocard.htm' %}
+    </div>
+
+    <div id="section3" class="container-fluid">
+        <h1>Pic Slider</h1>
+          {% include 'homepage/picslider.htm' %}
+    </div>
+    <div id="section4" class="container-fluid">
+      <h1>About Us</h1>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+      {% for _ in range %}
+        <br>
+      {% endfor %}
+  </div>
+    </div>
+  </body>
+  {% endblock body-main %}

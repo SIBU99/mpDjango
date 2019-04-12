@@ -1,0 +1,14 @@
+{% extends 'base.htm' %}
+{% load staticfiles %}
+    {% block title %}E-DSW | {{ stud.first_name }} | Home {% endblock title %}
+
+{% block body-main %}
+    <body>
+        {% include 'stud_home/navbar.htm' %}
+        <div class="container-fluid">
+            {% block container-fuild %}
+                <h1>Not Working </h1>
+            {% endblock container-fuild %}
+        </div>
+    </body>
+{% endblock body-main %}

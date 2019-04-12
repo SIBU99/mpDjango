@@ -1,0 +1,18 @@
+{% extends 'base.htm' %}
+    {% block title %}E-DSW | testing{% endblock title %}
+    {% block container-fuild %}
+    <form action="https://securegw-stage.paytm.in/theia/processTransaction" method="GET">
+        <input type="hidden" name="MID" value="ogYlZP62946399077470" id="id_MID">                                  
+        <input type="hidden" name="WEBSITE" value="WEBSTAGING" id="id_WEBSITE">
+        <input type="hidden" name="ORDER_ID" value="2019_3@26_2" id="id_ORDER_ID">
+        <input type="hidden" name="CUST_ID" value="2021@1701227253CS170073$1999_6_24!" id="id_CUST_ID">
+        <input type="hidden" name="MOBILE_NO" value="8144790767" id="id_MOBILE_NO">
+        <input type="hidden" name="EMAIL" value="kumarmishra678@gmail.com" id="id_EMAIL">
+        <input type="hidden" name="INDUSTRY_TYPE_ID" value="Retail" id="id_INDUSTRY_TYPE_ID">
+        <input type="hidden" name="CHANNEL_ID" value="WEB" id="id_CHANNEL_ID">
+        <input type="hidden" name="TXN_AMOUNT" value="6789" id="id_TXN_AMOUNT">
+        <input type="hidden" name="CALLBACK_URL" value="http://127.0.0.1:8000/response/" id="id_CALLBACK_URL">
+        <input type="hidden" name="CHECKSUMHASH" value="65VqgfC2jnHZatRjx5Cu6KwutJbqk2d8q2GZNjqFiutbb2qiyK0PFvapf+mqLQAzbBrjWEbi8RKERBWn66yd9uTDXV+fA312jF4IZBTHhjU=" id="id_CHECKSUMHASH">
+        <button type="submit">submit</button>
+    </form>
+    {% endblock container-fuild %}

@@ -1,0 +1,12 @@
+.form-container{
+    padding: 40px 60px;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    -webkit-box-shadow: 19px 18px 42px 16px rgba(33,32,33,1);
+    -moz-box-shadow: 19px 18px 42px 16px rgba(33,32,33,1);
+    box-shadow: 19px 18px 42px 16px rgba(33,32,33,1);
+}
+label{
+    text-size-adjust: 10px;
+    color: antiquewhite;
+}

@@ -1,0 +1,176 @@
+{% extends 'home_stud.htm' %}
+{% load staticfiles %}
+    {% block title %}E-DSW | {{stud.first_name}} | About me{% endblock title %}
+{% block container-fuild %}
+        <div class="container-fluid">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Information Card</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3">
+                                <!--! this is responsible for the profile picture -->
+                                <div class="position-fixed">
+                                    <div class="row1">
+                                        <div class="image_holder">
+                                            <img src="{{img.stud_img.url}}" alt="profilePicture" width="320" height="450" class="img-fluid" >
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row2">
+                                        <a href="#" class="btn btn-primary btn-block"> Change Profile Pic </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-md-9">
+                                <!--? this is responsible for the data display of student-->
+                                <div class="jumbotron jumbotron-fluid">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h2 class="text-center text-primary">Personal Information</h2>
+                                        </div>
+                                        <div class="card-body">
+                                                <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b class="text-upper">Registation Number</b></div>
+                                                        <div class="col-sm-2 col-md-2">{{ stud.reg_no }}</div>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b class="text-upper">Roll Number</b></div>
+                                                        <div class="col-sm-3 col-md-3">{{ stud.college_id }}</div>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b class="text-upper">Name</b></div>
+                                                        {% if stud.middle_name == '' %}
+                                                            <div class="col-sm-5 col-md-5">{{stud.first_name}} {{stud.last_name}}</div>
+                                                        {% else %}
+                                                            <div class="col-sm-5 col-md-5">{{stud.first_name}} {{stud.middle_name}} {{stud.last_name}}</div>
+                                                        {% endif %}
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Date Of Birth</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{stud.dob.day}}-{{stud.dob.month}}-{{stud.dob.year}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Date Of Joining</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{stud.join_year.day}}-{{stud.join_year.month}}-{{stud.join_year.year}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Email</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{stud.email}}</div>
+                                                </div>
+                                                <div class="row">
+                                                            <div class="col-sm-3 col-md-3"><b>PHONE NUMBER</b></div>
+                                                            <div class="col-sm-3 col-md-3">{{stud.mobile1}}</div>
+                                                </div>
+                                                {% if stud.mobile2 != None %}
+                                                    <div class="row">
+                                                            <div class="col-sm-3 col-md-3"><b>PHONE NUMBER&nbsp;(alter)</b></div>
+                                                            <div class="col-sm-3 col-md-3">{{stud.mobile2}}</div>
+                                                    </div>
+                                                {% endif %}
+                                                <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b class="text-upper">COURSE</b></div>
+                                                        <div class="col-sm-2 col-md-2">{{ helper.course }}</div>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b class="text-upper" >BRANCH</b></div>
+                                                        <div class="col-sm-6 col-md-6">{{ helper.branch}}</div>
+                                                </div>
+                                                 <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b class="text-upper">SEMESTER</b></div>
+                                                        <div class="col-sm-2 col-md-2">{{helper.sem}}</div>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-sm-3 col-md-3"><b>YEAR</b></div>
+                                                        <div class="col-sm-2 col-md-2">{{helper.year}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Mentor</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{stud.ment}}</div>
+                                                </div>
+                                                <div class="row text-danger">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Pay Id</b></div>
+                                                    <div class="col-sm-4 col-md-4">{{stud.pay_id}}</div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="text-center text-primary">
+                                                Parents Information
+                                            </h3>
+                                        </div>
+                                        <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Father's Name</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{par.father_name}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Father's Occupation</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{par.father_occu}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Father's contact</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{par.father_contact}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Mother's Name</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{par.mother_name}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Mother's Occupation</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{par.mother_occu}}</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Mother's contact</b></div>
+                                                    <div class="col-sm-3 col-md-3">{{par.mother_contact}}</div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="text-center text-primary">Document Information</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">Ojee Concent Letter</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.ojee.url}}">link</a></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">10th Certificate</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.pass10_certi.url}}">link</a></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">10th Marksheet</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.mark10_sheet.url}}">link</a></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">12th Certificate</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.pass12_certi.url}}">link</a></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">12th Marksheet</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.mark12_sheet.url}}">link</a></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">College Leave Certificate</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.clc.url}}">link</a></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-3"><b class="text-upper">migration</b></div>
+                                                <div class="col-sm-3 col-md-3"><a href="{{img.mig.url}}">link</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock container-fuild %}

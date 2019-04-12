@@ -1,0 +1,22 @@
+body{
+  position: relative;
+  background: rgba(182, 210, 243, 0.4)
+}
+
+.affix{
+  top: 0;
+  width: 100%;  
+  z-index: 9999 !important;
+}
+
+#test1{
+  background-image: 
+    url(../images/cvrce.jpg);
+  color: antiquewhite;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width:100%;
+  height:700px;
+  
+}

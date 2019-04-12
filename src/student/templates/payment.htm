@@ -1,0 +1,62 @@
+{% extends 'home_stud.htm' %}
+    {% load staticfiles %}
+   {% block title %}E-DSW | {{stud.first_name}} | Payment{% endblock title %}
+    {% block container-fuild %}
+        <link rel="stylesheet" href="{% static '/css/stud_pay.css' %}">
+        <div class="container">
+                <div class="jumbotron">
+                        {#now we  inherite the card.htm#}
+                        {% include 'card.htm' %}
+                        <form method="POST" action="." class="form-container">
+                                {% csrf_token %}
+
+                                {% for field in form.hidden_fields%}
+                                        {% if field.name == "CUST_ID" %}
+                                                <input type="hidden" name="CUST_ID" value="{{stud.pay_id}}" id="id_CUST_ID">
+                                        {% elif field.name == "MOBILE_NO" %}
+                                                <input type="hidden" name="MOBILE_NO" value="{{stud.mobile1}}" id="id_MOBILE_NO">
+                                        {% elif field.name == "EMAIL" %}
+                                                <input type="hidden" name="EMAIL" value="{{stud.email}}" id="id_EMAIL">
+                                        {% elif field.name == "CHECKSUMHASH" %}
+                                                <input type="hidden" name="CHECKSUMHASH" value="{{checksumhash}}" id="id_CHECKSUMHASH">
+                                        {% else %}
+                                                {{field}}
+                                        {% endif %}
+                                {% endfor %}
+                                <br>
+                                {% for field in form.visible_fields  %}
+                                        <div class="form-group row">
+                                                <label for="For{{field.label}}" class="col-sm-1 col-form-label text-success"><h5>{{field.label}}</h5></label>
+                                                <div class="col-sm-10">
+                                                        {{field}}
+                                                </div>
+                                        </div>
+                                {% endfor %}       
+                                <button type="submit" class="btn btn-success btn-block">Proceed To Pay</button>
+                        </form>
+                        <hr>
+                        <div class="container text-center text-muted">
+                          If you find the data in Payment Slip  is needed to be corrected contact your Mentor to change or correct your data
+                          <br>
+                          <br>
+                              <a href="#" class="btn btn-light btn-block btn-outline-dark">Go to the Interaction Page</a>
+                        </div>
+                </div>
+        </div>
+    {% endblock container-fuild %}
+
+    {% comment 'adding the form' %}
+    <div class="card text-center">
+        <div class="card-header">
+        Featured
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-muted">
+        2 days ago
+        </div>
+    </div>
+    {% endcomment %}
