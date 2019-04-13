@@ -1,0 +1,16 @@
+{% extends 'base.htm' %}
+{% load staticfiles %}
+    {% block title %}E-DSW | {{ment.name}} | home {% endblock title %}
+{% block body-main %}
+    <body>
+        {% include 'navMentor/navbar.htm' %}
+        <div class="container-fluid">
+        {% block container %}
+                <br>
+                <br>
+                <br>
+                work to be done
+        {% endblock container %}
+        </div>
+    </body>
+{% endblock body-main %}

@@ -12,6 +12,8 @@ def login_view(request):
 def home_view(request):
     "this will render the home page for the user"
     my_form = LoginForm()
+    request.session.flush()
+    request.session.modified = True
     if request.method == 'POST':
         data =  LoginForm(request.POST)
         print('it is in first layer') #added comment
@@ -27,7 +29,7 @@ def home_view(request):
                     if l.u_type == 'stud':
                         return redirect('stud_home') # this is for the stuedent
                     elif l.u_type == 'ment':
-                        return redirect() # this is for the mentor
+                        return redirect('ment_home') # this is for the mentor
                     elif l.u_type == 'exam':
                         return redirect() # this is for the examination cell
                     elif l.u_type == 'acc':

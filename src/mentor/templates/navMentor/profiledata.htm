@@ -1,0 +1,70 @@
+{% extends 'menthome.htm' %}
+{% load staticfiles %}
+    {% block title %}E-DSW | {{ment.name}} | My Profile{% endblock title %}
+{% block container %}
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Information Card</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3">
+                        <!--! this is  for the profile pic-->>
+                            <div class="row">
+                                <img src="{{ment.dp.url}}" alt="profilePic" width="320" height="450">
+                            </div>
+                            <div class="row">
+                                <a href="#" class="btn btn-primary btn-block"> Change Profile Pic </a>
+                            </div>
+                    </div>
+                    <div class="col-sm-9 col-md-9">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="text-center text-primary">
+                                        Personal Information
+                                    </h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3"><b class="text-uppercase">Employe ID</b></div>
+                                        <div class="col-sm-3 col-md-3">{{ment.emp_id}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3"><b class="text-uppercase">Name</b></div>
+                                        <div class="col-sm-3 col-md-3">{{ment.name}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3"><b class="text-uppercase">Contact No</b></div>
+                                        <div class="col-sm-3 col-md-3">{{ment.contact}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3"><b class="text-uppercase">Department</b></div>
+                                        <div class="col-sm-3 col-md-3">{{ment.dept}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3"><b class="text-upper">Position</b></div>
+                                        {% if ment.pos == 'ASS_P' %}
+                                            <div class="col-sm-3 col-md-3">Asst. Professor</div>
+                                        {% elif ment.pos == 'ASO_P' %}
+                                            <div class="col-sm-3 col-md-3">Aso. Professor</div>
+                                        {% elif ment.pos == 'PROF' %}
+                                            <div class="col-sm-3 col-md-3">Professor</div>
+                                        {% elif ment.pos == 'HOD' %}
+                                            <div class="col-sm-3 col-md-3">Head Of Department</div>
+                                        {% else %}
+                                            <div class="col-sm-3 col-md-3">Unknown</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock container %}
