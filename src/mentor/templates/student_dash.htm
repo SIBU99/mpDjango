@@ -1,24 +1,120 @@
 {% extends 'menthome.htm' %}
 {% load staticfiles %}
   {% block title %}E-DSW | {{ment.name}} | Student Dash Board {% endblock title %}
-{% block container %}
-<div class="container-fluid">
-  <div class="jumbotron jumbotron-fluid">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="text-center text-primary">Student Information Dashboard</h2>
-        </div>
-        <div class="card-body">
+{% block body-main %}
+    <body data-spy="scroll" data-offset="1" data-target="#verticalcol" >
+      {% include 'navMentor/navbar.htm' %}
+      <div class="container-fluid" style="margin-top:65px">
+        <div class="jumbotron jumbotron-fluid">
           <div class="row">
-            <div class="col-sm-3 col-md-3">
-              <!--! this for the nav pill stacks-->
+            <div class="col-3 col-sm-2" id="verticalcol">
+              <div class="position-fixed">
+                <ul class="nav flex-column nav-pills">
+                  {% for stud in students %}
+                    <li class="nav-item">
+                      <a href="#{{stud.reg_no}}" class="nav-link ativate">
+                      {{stud.reg_no}}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
-            <div class="col-sm-9 col-md-9">
-              <!--! this is for the students card dashes-->
+            <div class="col-9 col-sm-10">
+                {% for stud, helper,img  in zip  %}
+                <div class="container-fluid">
+                  <div class="card">
+                    <div class="card" id="{{stud.reg_no}}">
+                      <div class="card-header">
+                        <h2 class="text-center text-primary">{{stud.reg_no}}</h2>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-3 col-md-3">
+                            <!--! this is responsible for the profile picture -->
+                            <div class="row1">
+                              <div class="image_holder">
+                                <img src="{{img.stud_img.url}}" alt="student profile picture" width="320" height="450" class="img-fluid">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-9 col-md-9">
+                          <!--? this is responsible for the data display of student-->
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3"><b class="text-upper">Registation Number</b></div>
+                                <div class="col-sm-2 col-md-2">{{ stud.reg_no }}</div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Roll Number</b></div>
+                                    <div class="col-sm-3 col-md-3">{{ stud.college_id }}</div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b class="text-upper">Name</b></div>
+                                    {% if stud.middle_name == '' %}
+                                        <div class="col-sm-5 col-md-5">{{stud.first_name}} {{stud.last_name}}</div>
+                                    {% else %}
+                                        <div class="col-sm-5 col-md-5">{{stud.first_name}} {{stud.middle_name}} {{stud.last_name}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3"><b class="text-upper">Date Of Birth</b></div>
+                                <div class="col-sm-3 col-md-3">{{stud.dob.day}}-{{stud.dob.month}}-{{stud.dob.year}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3"><b class="text-upper">Date Of Joining</b></div>
+                                <div class="col-sm-3 col-md-3">{{stud.join_year.day}}-{{stud.join_year.month}}-{{stud.join_year.year}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3"><b class="text-upper">Email</b></div>
+                                <div class="col-sm-4 col-md-4">{{stud.email}}</div>
+                            </div>
+                            <div class="row">
+                                        <div class="col-sm-3 col-md-3"><b>PHONE NUMBER</b></div>
+                                        <div class="col-sm-3 col-md-3">{{stud.mobile1}}</div>
+                            </div>
+                      {% if stud.mobile2 != None %}
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b>PHONE NUMBER&nbsp;(alter)</b></div>
+                                    <div class="col-sm-3 col-md-3">{{stud.mobile2}}</div>
+                            </div>
+                      {% endif %}
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b class="text-upper">COURSE</b></div>
+                                    <div class="col-sm-2 col-md-2">{{ helper.course }}</div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b class="text-upper" >BRANCH</b></div>
+                                    <div class="col-sm-6 col-md-6">{{ helper.branch}}</div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b class="text-upper">SEMESTER</b></div>
+                                    <div class="col-sm-2 col-md-2">{{helper.sem}}</div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-sm-3 col-md-3"><b>YEAR</b></div>
+                                    <div class="col-sm-2 col-md-2">{{helper.year}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3"><b class="text-upper">Mentor</b></div>
+                                <div class="col-sm-3 col-md-3">{{stud.ment}}</div>
+                            </div>
+                            <div class="row text-danger">
+                                <div class="col-sm-3 col-md-3"><b class="text-upper">Pay Id</b></div>
+                                <div class="col-sm-6 col-md-6">{{stud.pay_id}}</div>
+                            </div>
+                            <br>
+                            <a href="#" class="btn btn-outline-primary btn-block">See The Profile </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+                {% endfor %}
             </div>
           </div>
         </div>
       </div>
-  </div>
-</div>
-{% endblock container %}
+    </body>
+{% endblock body-main %}

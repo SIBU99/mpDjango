@@ -12,8 +12,8 @@ def login_view(request):
 def home_view(request):
     "this will render the home page for the user"
     my_form = LoginForm()
-    request.session.flush()
-    request.session.modified = True
+    #request.session.flush()
+    #request.session.modified = True
     if request.method == 'POST':
         data =  LoginForm(request.POST)
         print('it is in first layer') #added comment

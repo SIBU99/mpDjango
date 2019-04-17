@@ -1,94 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	 crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" integrity="sha384-u/bQvRA/1bobcXlcEYpsEdFVK/vJs3+T+nXLsBYJthmdBuavHvAW6UsmqO2Gd/F9"
+	 crossorigin="anonymous">
+	</script>
   <style>
   body {
-    position: relative;
+      position: relative;
   }
-  .affix {
-    top: 20px;
-    z-index: 9999 !important;
-  }
-  div.col-sm-9 div {
-    height: 250px;
-    font-size: 28px;
-  }
-  #section1 {color: #fff; background-color: #1E88E5;}
-  #section2 {color: #fff; background-color: #673ab7;}
- 
-  #section41 {color: #fff; background-color: #00bcd4;}
-  #section42 {color: #fff; background-color: #009688;}
-  
-  @media screen and (max-width: 810px) {
-    #section1, #section2, #section3, #section41, #section42  {
-      margin-left: 150px;
-    }
+  ul.nav-pills {   
+      top: 20px;
+      position: fixed;
   }
   </style>
+	<script type="text/javascript" src="scripts.js">
+	</script>
+	<link rel="stylesheet" href="styles.css">
 </head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
 
-<div class="container-fluid" style="background-color:#2196F3;color:#fff;height:220px;">
-  <h1>Scrollspy & Affix Example</h1>
-  <h3>Fixed vertical sidenav on scroll</h3>
-  <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
-  <p>The left menu sticks the page after you have scrolled a specified amount of pixels, and the links in the menu are automatically updated based on scroll position.</p>
-</div>
-<br>
-
-<div class="container">
-  <div class="row">
-    <nav class="col-sm-3" id="myScrollspy">
-      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
-        <li><a href="#section1">Section 1</a></li>
-        <li><a href="#section2">Section 2</a></li>
-        
-
-
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#section41">Section 4-1</a></li>
-            <li><a href="#section42">Section 4-2</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <div class="col-sm-9">
-      <div id="section1">    
-        <h1>Section 1</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      <div id="section2"> 
-        <h1>Section 2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>        
-     
-
-
-
-
-
-
-
-      <div id="section41">
-        <h1>Section 4-1</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>      
-      <div id="section42">
-        <h1>Section 4-2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+<body data-spy="scroll" data-offset="1" data-target="#verticalScrollspy">
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-3 col-sm-2" id="verticalScrollspy">
+				<ul class="nav flex-column nav-pills">
+					<li class="nav-item"><a class="nav-link active" href="#dogs">Dogs</a></li>
+					<li class="nav-item"><a class="nav-link" href="#cats">Cats</a></li>
+					<li class="nav-item"><a class="nav-link" href="#fish">Fish</a></li>
+					<li class="nav-item"><a class="nav-link" href="#penguins">Penguins</a></li>
+					<li class="nav-item"><a class="nav-link" href="#alpacas">Alpacas</a></li>
+					<li class="nav-item"><a class="nav-link" href="#rabbits">Rabbits</a></li>
+				</ul>
+			</nav>
+			<div class="col-9 col-sm-10">
+				<div id="dogs" class="container-fluid" style="margin-top:60px">
+					<h1>Dogs</h1>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+				</div>
+				<div id="cats" class="container-fluid">
+					<h1>Cats</h1>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+				</div>
+				<div id="fish" class="container-fluid">
+					<h1>Fish</h1>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+				</div>
+				<div id="penguins" class="container-fluid">
+					<h1>Penguins</h1>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+				</div>
+				<div id="alpacas" class="container-fluid">
+					<h1>Alpacas</h1>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+				</div>
+				<div id="rabbits" class="container-fluid">
+					<h1>Rabbits</h1>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+					<p>Look at the navigation menu to see how it interacts with scrolling over this segment</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

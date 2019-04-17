@@ -20,7 +20,7 @@ from django.urls import path
 from login.views import login_view,home_view
 from student.views import PrePaymnetSlipView, PrePaymentRecieptView, TransactionView, StudHomeView, FeesView, WhoamiView
 from tester.views import TestView
-from mentor.views import DashView, MentHomeView, whoIam
+from mentor.views import DashView, MentHomeView, whoIam, displayStudent
 
 urlpatterns = [
     path('student/payment2/',PrePaymentRecieptView, name = 'pay2'),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/',TestView, name='test' ),
     path('mentor/home/',MentHomeView, name = 'ment_home'),
+    path('mentor/information/<int:RegNO>', displayStudent, name = 'display_stud' ),
     path('mentor/whoiam/', whoIam, name = 'miam'),
     path('mentor/dash/',DashView, name='Dash' ),
     path('response/',TransactionView, name='Respo'),

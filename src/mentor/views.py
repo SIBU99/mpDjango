@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Mentor as M
 from student.models import Student as S
+from student.models import Document as dc
 from student.views import Helper
 # Create your views here.
 def DashView(request):
@@ -9,10 +10,18 @@ def DashView(request):
     ment = M.objects.get(id_fet = key)
     stud_list = list(S.objects.filter( ment = ment ))
     helper = list(map(Helper,stud_list))
-    zipper = zip(stud_list,helper)
+    Doc_list = [] # this will store the data of all the student related to document
+    for i in stud_list:
+        Doc_list += [dc.objects.get(student = i) ]
+    zipper = zip(stud_list,helper,Doc_list)
+    
+    if request.method == "POST":
+        print(request.POST)
+
     context={
         'ment':ment,
         'zip' : zipper,
+        'students':stud_list,
     }
     return render(request,'student_dash.htm',context)
 
@@ -21,6 +30,8 @@ def MentHomeView(request):
     key  = request.session.get('key')
     print(f"acess key is ]:[ {key}")
     m = M.objects.get(id_fet = key)
+    
+
     context = {
         'ment':m,
     }
@@ -34,3 +45,9 @@ def whoIam(request):
         'ment':ment
     }
     return render(request,'navMentor/profiledata.htm',context)
+
+def displayStudent(request, RegNo):
+    "this is used for the registration navigation of site"
+    print(RegNO)
+    context = {}
+    return render(request,'datasiaplayer.htm',context)
