@@ -79,8 +79,8 @@ def PrePaymnetSlipView(request):
                 "INDUSTRY_TYPE_ID":holder['INDUSTRY_TYPE_ID'],
                 "WEBSITE":holder['WEBSITE'],
             }
-            hold = generate_checksum(param_dict=params, merchant_key=MERCHANT_KEY, salt= None)
-            params['CHECKSUMHASH'] = hold
+            #hold = generate_checksum(param_dict=params, merchant_key=MERCHANT_KEY, salt= None)
+            params['CHECKSUMHASH'] = "checksum"
             params['REG_NO'] = my_stud.reg_no
             params['CALLBACK_URL'] = holder['CALLBACK_URL']
             params['EMAIL'] = holder['EMAIL']

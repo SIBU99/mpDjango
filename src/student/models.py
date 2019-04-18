@@ -565,7 +565,7 @@ class Student(models.Model):
         "this will automatically add save the data when the save will invoke"
         #! i have used it due to auto genrating the pay_id
         
-        if self.pay_id == "":
+        if self.pay_id ==  "" or "@" in self.pay_id or "|" in self.pay_id or "_" in self.pay_id:
             data1 = self.join_year.year #now this is storeing the year of joining #! work pause
             data1 += 4 #now it is storeing the year of passing
             data2 = self.reg_no #it is storeing the BPUT registration number
@@ -574,7 +574,7 @@ class Student(models.Model):
             data5 = self.dob.month #it is storeing the birth month
             data6 = self.dob.day#it is storeing the birth date
 
-            self.pay_id = f'{data1}@{data2}{data3}${data4}_{data5}_{data6}!'
+            self.pay_id = f'{data1}P{data2}R{data3}C{data4}Y{data5}M{data6}D'
         super(Student,self).save()
 
     def __str__(self):

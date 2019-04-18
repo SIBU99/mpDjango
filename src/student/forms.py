@@ -11,10 +11,11 @@ def createOrderId():
     
     data1, data2, data3 = dt.now().year, dt.now().month, dt.now().day
     num = Order.objects.count()
+    print(num)
     if num == None:
-        return f'{data1}_{data2}@{data3}_1'
+        return f'{data1}Y{data2}M{data3}D1'
     else:
-        return f'{data1}_{data2}@{data3}_{num+1}'
+        return f'{data1}Y{data2}M{data3}D{num+6}'
 
 
 

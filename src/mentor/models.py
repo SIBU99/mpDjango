@@ -4,6 +4,7 @@ from django.db import models
 def upload_to(instance, filename):
     "this will upload the file in the dp/<mentor.emp_id>/filename"
     return f'dp/{instance.emp_id}/filename'
+
 class Mentor(models.Model):
     "this will store the data of the mentor and related data and allow the mentor to add the documents of the student"
     p =[
@@ -52,6 +53,10 @@ class Mentor(models.Model):
         max_length= 40,
         choices = p
     )
+    """
+        get_absolute_url(self):
+            return reverse("Mentor", kwargs={"pk": self.pk})
+    """    
 
     def __str__(self):
         "To String for the model which return the name"

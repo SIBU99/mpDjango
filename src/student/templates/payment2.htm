@@ -7,7 +7,7 @@
                 <div class="jumbotron">
                         {#now we  inherite the card.htm#}
                         {% include 'card2.htm' %}
-                        <form method="GET" action="https://securegw-stage.paytm.in/theia/processTransaction" class="form-container">
+                        <form method="POST" action="https://passpaymnetargshelp.000webhostapp.com/Paytm/PaytmKit/TxnTest.php" class="form-container">
                                 {# % csrf_token % #}
                                 {% for field in form.hidden_fields%}
                                         {% if field.name == "CUST_ID" %}

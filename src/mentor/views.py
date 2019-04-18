@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse
 from .models import Mentor as M
 from student.models import Student as S
 from student.models import Document as dc
+from student.models import Parent
 from student.views import Helper
 # Create your views here.
 def DashView(request):
@@ -48,6 +49,18 @@ def whoIam(request):
 
 def displayStudent(request, RegNo):
     "this is used for the registration navigation of site"
-    print(RegNO)
-    context = {}
-    return render(request,'datasiaplayer.htm',context)
+    key = request.session.get('key')
+    ment = M.objects.get(id_fet = key)
+    RegNo = int(RegNo)
+    stud = S.objects.get(reg_no = RegNo)
+    h = Helper(stud)
+    parent = Parent.objects.get(student = stud )
+    img = dc.objects.get(student = stud )
+    context = {
+        'ment':ment,
+        'stud':stud,
+        'img':img,
+        'helper':h,
+        'par': parent,
+    }
+    return render(request,'datadisplayer.htm',context)
